@@ -8,3 +8,17 @@ curl http://10.64.170.175/  -- what it does -What happens after running the comm
 sending POST request-Suppose you've found a login form whose POST target is /post.php. When you log in through a browser, it sends a POST request to the server containing the credentials you entered. We can simulate this directly from the terminal
 
 curl -X POST -d "username=user&password=user" http://10.64.170.175/post.php
+
+Use curl with the -i flag to display the HTTP response headers:
+
+curl -i -X POST -d "username=user&password=user" http://example.com/post.php
+
+
+Use curl with the -c flag to save session cookies for later authenticated requests:
+
+curl -c cookies.txt -d "username=admin&password=admin" http://10.65.152.159/session.php
+
+
+Use curl with the -b flag to send stored cookies and access protected pages:
+
+curl -b cookies.txt http://10.65.152.159/protected.php
